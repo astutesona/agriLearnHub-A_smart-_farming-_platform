@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriLearn Hub - Learn</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png" /> 
+  <style>
+    /* ====== Global Theme Setup ====== */
+:root {
+  --primary-color: #2d6a4f;
+  --secondary-color: #40916c;
+  --light-color: #f4f4f4;
+  --dark-color: #1b4332;
+  --text-color: #333;
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+  --border-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ====== Navbar ====== */
+.navbar {
+  background: var(--light-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+  margin-right: 6px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--primary-color);
+}
+
+.btn-nav {
+  background: var(--primary-color);
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.btn-nav:hover {
+  background: var(--secondary-color);
+}
+
+/* ====== Hero Section ====== */
+.page-hero {
+  background: linear-gradient(to right, rgba(45,106,79,0.9), rgba(45,106,79,0.9)),
+              url('images/learn-banner.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.page-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ====== Sections General ====== */
+section {
+  padding: 4rem 2rem;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ====== Section Titles ====== */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+/* ====== Buttons ====== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-outline {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 20px;
+}
+
+.btn-small:hover {
+  background: var(--secondary-color);
+}
+
+/* ====== Course Categories ====== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.category-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+}
+
+.category-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.category-info {
+  padding: 1.2rem;
+}
+
+.category-info h3 {
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+/* ====== Featured Courses ====== */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: var(--transition);
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+}
+
+.course-image img {
+  width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  height: 180px;
+  object-fit: cover;
+}
+
+.course-card h3 {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.course-card p {
+  padding: 0 1rem 1rem;
+  color: #555;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem 1rem;
+}
+
+.course-price {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+/* ====== Footer ====== */
+.footer {
+  background: var(--dark-color);
+  color: #fff;
+  padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-column h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 8px;
+}
+
+.footer-column p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.footer-column ul a {
+  text-decoration: none;
+  color: #ccc;
+  transition: var(--transition);
+}
+
+.footer-column ul a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- 🌿 Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><img src="logo.png" alt="AgriLearn Hub Logo" height="60px" width="60px"></span>
+        <span class="logo-text">AgriLearn Hub</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="learn.html" class="active">Learn</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#" class="btn-nav">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 🌾 Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Learn Sustainable & Smart Farming</h1>
+      <p>Master modern agriculture through hands-on courses, video tutorials, and interactive projects.</p>
+    </div>
+  </section>
+
+  <!--  Course Categories -->
+  <section class="course-categories">
+    <div class="container">
+      <h2 class="section-title">Explore Learning Paths</h2>
+      <p class="section-subtitle">Choose a learning area that matches your goals.</p>
+
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="learn1.jpg" alt="Organic Farming">
+          <div class="category-info">
+            <h3>Organic Farming</h3>
+            <p>Understand soil health, bio-fertilizers, and pest control for toxin-free farming.</p>
+            <a href="#" class="btn btn-outline">Start Learning</a>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <img src="learn2.jpg" alt="Hydroponics">
+          <div class="category-info">
+            <h3>Hydroponics</h3>
+            <p>Learn how to grow crops without soil and manage nutrient-rich water systems.</p>
+            <a href="#" class="btn btn-outline">Start Learning</a>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <img src="learn3.jpg" alt="Smart Farming">
+          <div class="category-info">
+            <h3>Smart Farming</h3>
+            <p>Use IoT, sensors, and AI to automate irrigation, detect diseases, and monitor crops.</p>
+            <a href="#" class="btn btn-outline">Start Learning</a>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <img src="learn4.jpg" alt="Agri Business">
+          <div class="category-info">
+            <h3>Agri-Business Management</h3>
+            <p>Learn how to market, manage, and scale your agricultural business successfully.</p>
+            <a href="#" class="btn btn-outline">Start Learning</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Featured Courses -->
+  <section class="featured-courses">
+    <div class="container">
+      <h2 class="section-title">Top Rated Courses</h2>
+      <p class="section-subtitle">Boost your farming skills with our best-in-class lessons.</p>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-image">
+            <img src="course.jpg" alt="Soil Science">
+          </div>
+          <h3>Soil Science & Fertility</h3>
+          <p>Discover how soil composition impacts plant growth and yield optimization.</p>
+          <div class="course-footer">
+            <span class="course-price">Free</span>
+            <a href="#" class="btn btn-small">Enroll</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-image">
+            <img src="course5.jpg" alt="Climate Smart Farming">
+          </div>
+          <h3>Climate-Smart Farming</h3>
+          <p>Adapt to changing weather using data-driven farming strategies.</p>
+          <div class="course-footer">
+            <span class="course-price">₹699</span>
+            <a href="#" class="btn btn-small">Enroll</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-image">
+            <img src="course6.avif" alt="Water Management">
+          </div>
+          <h3>Water Management in Agriculture</h3>
+          <p>Learn efficient irrigation, water conservation, and drip systems.</p>
+          <div class="course-footer">
+            <span class="course-price">₹499</span>
+            <a href="#" class="btn btn-small">Enroll</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>AgriLearn Hub</h3>
+        <p>Empowering farmers and learners through modern agricultural knowledge and technology.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="learn.html">Learn</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email: sastutesona@gmail.com</li>
+          <li>Phone: +91 6287933944</li>
+          <li>Address: Chandigarh, mohali,14040 India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 AgriLearn Hub | All Rights Reserved 🌿</p>
+    </div>
+  </footer>
+
+</body>
+</html>
